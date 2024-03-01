@@ -1,4 +1,4 @@
-#+TITLE: Tiny Search Engine (TSE)
+# TITLE: Tiny Search Engine (TSE)
 
 This project is a small-scale search engine implemented in C for Dartmouth College's CS50 class, Software Design and Implementation. It consists of three main components: a crawler, an indexer, and a querier. Each component is organized within its respective directory inside the `tse` directory. Additionally, you'll find a `utils` directory containing all the necessary C modules and interfaces, as well as a `lib` directory for the compiled library.
 
