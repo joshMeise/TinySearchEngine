@@ -14,4 +14,4 @@ Step5a:
 				gcc $(CFLAGS) Step5a.c $(LIBS) -o $@
 
 clean:
-			rm -f indexer Step5a Step52Files Step5OneFile *.o
+			rm -rf indexer *.o *.dSYM

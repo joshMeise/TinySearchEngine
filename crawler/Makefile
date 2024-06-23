@@ -12,4 +12,4 @@ str:
 
 
 clean:
-			rm -f crawler str
+			rm -rf crawler *.o *.dSYM

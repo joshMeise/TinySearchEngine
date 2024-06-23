@@ -1,8 +1,8 @@
 CFLAGS=-Wall -pedantic -std=c11 -I../utils -L../lib -g
 LIBS=-lutils -lcurl
 
-query:
-				gcc $(CFLAGS) query.c $(LIBS) -o $@
+indexer:
+				gcc $(CFLAGS) indexer.c $(LIBS) -o $@
 
 clean:
-			rm -f query *.o
+			rm -rf indexer *.o *.dSYM
