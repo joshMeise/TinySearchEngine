@@ -21,9 +21,6 @@ if [ $# == 1 ] && [ $1 == "-s" ]; then
 		unset MODE
 fi
 
-# revert to the tse directory
-cd ..
-
 # make all of the components
 for DIR in utils crawler indexer querier parallel_indexer
 do

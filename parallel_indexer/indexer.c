@@ -323,10 +323,10 @@ int main(int argc, char *argv[]) {
 
 	// Set the directory.
 	strcpy(directory, argv[1]);
-
+	
 	// Read the number of threads.
 	num = strtol(argv[3], &str, 10);
-
+	
 	// Check that a valid number was enetered by the user.
 	if (num <= 0 || strcmp(str, "\0") != 0) {
 		printf("usage: indexer <pagedir> <indexnm> <numthreads>\n");
@@ -357,7 +357,7 @@ int main(int argc, char *argv[]) {
 		if (pthread_join(*(threads + i), NULL) != 0)
 			exit(EXIT_FAILURE);
 	}
-	
+
 	// Save index.
 	if (indexsave(argv[2]) != 0)
 		printf("Error saving index.\n");
