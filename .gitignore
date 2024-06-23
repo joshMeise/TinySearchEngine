@@ -8,4 +8,4 @@
 .DS_Store
 
 # backup directories
-/.backup
+**/.backup/
