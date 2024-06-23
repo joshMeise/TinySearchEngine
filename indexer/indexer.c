@@ -158,7 +158,7 @@ int main(int argc, char *argv[]) {
 	curID = 1;
 
 	// Initialise file name to be the first id.
-	sprintf(fname, "../crawler/page/%d", curID);
+	sprintf(fname, "../crawler/%s/%d", argv[1], curID);
 	
 	while (access(fname, R_OK) == 0) {
 		// Load webpage at given index.
@@ -198,7 +198,7 @@ int main(int argc, char *argv[]) {
 				if ((dc = (docCount_t *)qsearch(wordQueue->qp, searchQueue, (void *)&curID)) == NULL) {
 					// Create a new document/count pair.
 					if ((dc = (docCount_t *)malloc(sizeof(docCount_t))) == NULL)
-						printf("Doc count paur not successfully allocated.\n");
+						printf("Doc count pair not successfully allocated.\n");
 					
 					// Initialise this new document/count pair.
 					dc->doc = curID;
@@ -222,8 +222,8 @@ int main(int argc, char *argv[]) {
 		// Increment current ID.
 		curID++;
 		
-		// Initialise file name to be the first id.
-		sprintf(fname, "../crawler/page/%d", curID);
+		// File name should be the current page id.
+		sprintf(fname, "../crawler/%s/%d", argv[1], curID);
 		
 	}
 	
