@@ -2,7 +2,7 @@
 
 This project is a small-scale search engine implemented in C for Dartmouth College's CS50 class, Software Design and Implementation. It consists of three main components: a crawler, an indexer, and a querier. Each component is organized within its respective directory (additionally, there is a parallel_indexer directory which contains a parellized implementation of the indexer). Additionally, you'll find a `utils` directory containing all the necessary C modules and interfaces, as well as a `lib` directory for the compiled library.
 
-* Project Structure
+## Project Structure
 
   - **crawler**: Contains the source code for the web crawler component. The crawler retrieves web pages from a given seed URL and saves them to a local directory for further processing.
   
@@ -21,9 +21,20 @@ This project is a small-scale search engine implemented in C for Dartmouth Colle
   - `run.sh`: This script may be run to run the tiny search engine (it also makes the project and cleans up at termination).
   
 
-* Usage
+## Usage
+  The Tiny Search Engine can be run but running the `run.sh` script. This will build each component, run the crawler, indexer and querier until operation is terminated by the user with an `EOF` character and will then clean up the directory structure. Below is a summary of its usage:
+  
+  - Run TSE:
+  ```bash
+  ./run.sh [seed URL] [depth] [[-q]] [[-p]] [[number of threads]]
+  ```
+	  - `seed URL`: The starting URL from which the crawler will begin crawling.
+	  - `depth`: The maximum depth to which the crawler will crawl from the seed URL.
+	  - `-q`: Optional flag which allows queries to be loaded quietly from a file.
+	  - `-p`: Optional flag which uses the parallelized version of the indexer as opposed to the basic indexer.
+	  - `number of threads`: Number of parallel threads to open - should only be present in conjunction with -p
 
-  Each component of the Tiny Search Engine project can be run with specific command-line arguments. Below is a brief overview of each component's usage:
+  Each component of the Tiny Search Engine project can be run individually with specific command-line arguments. Below is a brief overview of each component's usage:
 
   - **Crawler**
 
