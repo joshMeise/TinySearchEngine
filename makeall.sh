@@ -10,14 +10,23 @@ popd () {
 
 # check arguments
 if [ $# != 1 ] && [ $# != 0 ]; then
-		echo "usage: makeall.sh [ -s ]"
-		echo "   -h : help"
+		echo "usage: makeall.sh [ -s ] [ -q ]"
+		echo "   -s : show compilation output"
+		echo "   -q: : build quietly"
+		exit
+fi
+
+# check the argument
+if [ $# == 1 ] && !([ $1 == "-q" ] || [ $1 == "-s" ] || [ $1 == "-sq" ] || [ $1 == "-qs" ]); then
+		echo "usage: makeall.sh [ -s ] [ -q ]"
+		echo "   -s : show compilation output"
+		echo "   -q: : build quietly"
 		exit
 fi
 
 # quiet by default
 MODE=-s
-if [ $# == 1 ] && [ $1 == "-s" ]; then
+if [ $# == 1 ] && ([ $1 == "-s" ] || [ $1 == "-sq" ] || [ $1 == "-qs" ]); then
 		unset MODE
 fi
 
@@ -27,9 +36,14 @@ do
 
 		if [ -d ./${DIR} ] ; then
 				pushd ./${DIR}
-				echo [$DIR]
-				make ${MODE} clean
-				make ${MODE}
+				if [ $# == 1 ] && ([ $1 == "-q" ] || [ $1 == "-sq" ] || [ $1 == "-qs" ]); then
+						make ${MODE} clean > /dev/null
+						make ${MODE} > /dev/null
+				else
+						echo [$DIR]
+						make ${MODE} clean
+						make ${MODE}
+				fi
 				popd
 		fi
 

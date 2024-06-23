@@ -5,7 +5,7 @@
  * Created: 10-24-2023
  * Version: 1.0
  * 
- * Description: Given a file in 
+ * Description: Given a file index and a directory of crawled pages, takes query input from the user and outputs ranked pages.
  * 
  */
 
@@ -339,14 +339,15 @@ int main(int argc, char *argv[]) {
 		
 		// If not discarding a query, go through words in query string and see how many times they occur in a given index.
 		if (discard == false) {
-			// Print out the words in the query string.
-			j = 0;
-			while (j < i) {
-				printf("%s ", str[j]);
-				j++;
+			if (quiet == false) {
+				// Print out the words in the query string.
+				j = 0;
+				while (j < i) {
+					printf("%s ", str[j]);
+					j++;
+				}
+				printf("\n");
 			}
-
-			printf("\n");
 
 			// Open the queue of documents for the specific word.
 			queueOfDocs = qopen();
@@ -435,7 +436,8 @@ int main(int argc, char *argv[]) {
 			printf("> ");
 	}
 
-	printf("\n");
+	if (quiet == false)
+		printf("\n");
 
 	// Free memory.
 	happly(index, freeW);
