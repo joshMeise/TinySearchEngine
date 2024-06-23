@@ -24,15 +24,16 @@ This project is a small-scale search engine implemented in C for Dartmouth Colle
 ## Usage
   The Tiny Search Engine can be run but running the `run.sh` script. This will build each component, run the crawler, indexer and querier until operation is terminated by the user with an `EOF` character and will then clean up the directory structure. Below is a summary of its usage:
   
-  - Run TSE:
-  ```bash
-  ./run.sh [seed URL] [depth] [[-q]] [[-p]] [[number of threads]]
-  ```
-	  - `seed URL`: The starting URL from which the crawler will begin crawling.
-	  - `depth`: The maximum depth to which the crawler will crawl from the seed URL.
-	  - `-q`: Optional flag which allows queries to be loaded quietly from a file.
-	  - `-p`: Optional flag which uses the parallelized version of the indexer as opposed to the basic indexer.
-	  - `number of threads`: Number of parallel threads to open - should only be present in conjunction with -p
+  - **Run TSE**
+  
+	```bash
+	./run.sh [seed URL] [depth] [[-q]] [[-p]] [[number of threads]]
+	```
+	- `seed URL`: The starting URL from which the crawler will begin crawling.
+	- `depth`: The maximum depth to which the crawler will crawl from the seed URL.
+	- `-q`: Optional flag which allows queries to be loaded quietly from a file.
+	- `-p`: Optional flag which uses the parallelized version of the indexer as opposed to the basic indexer.
+	- `number of threads`: Number of parallel threads to open - should only be present in conjunction with -p
 
   Each component of the Tiny Search Engine project can be run individually with specific command-line arguments. Below is a brief overview of each component's usage:
 
