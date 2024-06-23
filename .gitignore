@@ -6,7 +6,7 @@
 
 # macOS specific files
 .DS_Store
-**/.dSYM
+**/*.dSYM
 
 # backup directories
 **/.backup/
