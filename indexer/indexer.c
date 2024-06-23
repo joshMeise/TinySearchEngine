@@ -144,7 +144,7 @@ int main(int argc, char *argv[]) {
 	if (stat(argv[1], &dir) != 0)
 		printf("Failure on stat.\n");
 
-	// Check if directory exists; if not create one; if creation fails, return 1.
+	// Check if directory exists.
 	if (S_ISDIR(dir.st_mode) == 0) {
 		printf("usage: indexer <pagedir> <indexnm>\n");
 		exit(EXIT_FAILURE);
@@ -158,7 +158,7 @@ int main(int argc, char *argv[]) {
 	curID = 1;
 
 	// Initialise file name to be the first id.
-	sprintf(fname, "../crawler/%s/%d", argv[1], curID);
+	sprintf(fname, "%s/%d", argv[1], curID);
 	
 	while (access(fname, R_OK) == 0) {
 		// Load webpage at given index.
@@ -223,7 +223,7 @@ int main(int argc, char *argv[]) {
 		curID++;
 		
 		// File name should be the current page id.
-		sprintf(fname, "../crawler/%s/%d", argv[1], curID);
+		sprintf(fname, "%s/%d", argv[1], curID);
 		
 	}
 	
