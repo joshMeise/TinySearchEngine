@@ -6,3 +6,6 @@
 
 # macOS specific files
 .DS_Store
+
+# backup directories
+/.backup
